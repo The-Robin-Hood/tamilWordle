@@ -1,10 +1,10 @@
 @font-face {
   font-family: Wordle;
-  src: url(/assets/wordleFont.woff2);
+  src: url(./wordleFont.woff2);
 }
 @font-face {
   font-family: Tamil;
-  src: url(/assets/tamilfont.ttf);
+  src: url(./tamilfont.ttf);
 }
 *,
 *:after,
@@ -454,7 +454,6 @@ svg {
   .gamegrid {
     grid-template-columns: repeat(4, 4.7em);
     grid-template-rows: repeat(5, 4.7em);
-    flex-grow: 0;
   }
   .keyboard {
     grid-template-columns: repeat(20, minmax(auto, 1em));
