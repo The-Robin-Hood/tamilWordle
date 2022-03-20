@@ -53,6 +53,7 @@
 }
 html {
   height: 100%;
+  -webkit-text-size-adjust: none;
 }
 body {
   background-color: var(--bgColor);
@@ -62,6 +63,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  transition: background-color 0.5s ease-in-out;
 }
 svg {
   pointer-events: none;
@@ -526,6 +528,7 @@ input[type="checkbox"]:focus {
   border-radius: 16em;
   transition: all 0.5s ease-in-out;
   background: #423966;
+  cursor: pointer;
 }
 .day {
   background: #ffbf71;
