@@ -529,6 +529,7 @@ input[type="checkbox"]:focus {
   transition: all 0.5s ease-in-out;
   background: #423966;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .day {
   background: #ffbf71;
@@ -574,9 +575,6 @@ input[type="checkbox"]:focus {
   .key {
     font-size: 12px;
     overflow: hidden;
-  }
-  .key:hover {
-    --lightOff: 0%;
   }
   .key.special {
     font-size: 0.7em;
