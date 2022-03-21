@@ -382,6 +382,7 @@ input[type="checkbox"]:focus {
   cursor: pointer;
   border-radius: 0.25em;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .key.special {
   font-family: Arial, Helvetica, sans-serif;
