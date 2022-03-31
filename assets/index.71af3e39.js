@@ -14124,12 +14124,12 @@ function bb(b, u, a, d) {
         const e = JSON.parse(localStorage.getItem("keyboard"));
         b.classList.remove("reveal"),
           t[u] === c && o[c] !== 0
-            ? ((o[t[u]] -= 1),
+            ? ((o[c] -= 1),
               (b.dataset.state = "correct"),
               f.classList.add("correct"),
               (e.state[l.indexOf(c)] = "correct"))
             : t.includes(c) && o[c] !== 0
-            ? ((o[t[u]] -= 1),
+            ? ((o[c] -= 1),
               (b.dataset.state = "incorrect-location"),
               f.classList.add("incorrect-location"),
               (e.state[l.indexOf(c)] = "incorrect-location"))
