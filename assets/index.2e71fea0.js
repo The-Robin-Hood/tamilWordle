@@ -13880,7 +13880,7 @@ function k() {
   o = {};
   for (var b in t) o[t[b]] ? (o[t[b]] += 1) : (o[t[b]] = 1);
 }
-function m(b) {
+function y(b) {
   A({
     text: b,
     duration: 3e3,
@@ -13903,7 +13903,7 @@ function w(b) {
   });
 }
 function K() {
-  var b = ["\u0B85", "\u0BA9\u0BCD", "\u0B9A\u0BBE", "\u0BB0\u0BBF"];
+  var b = [];
   if (JSON.parse(localStorage.getItem("keyboard")))
     return (b = JSON.parse(localStorage.getItem("keyboard")).letters), b;
   for (
@@ -13932,7 +13932,7 @@ function K() {
   );
 }
 function P() {
-  y(),
+  m(),
     setTimeout(() => {
       document.querySelector(".helper").style.opacity = 1;
     }, 10),
@@ -13945,7 +13945,7 @@ function R() {
     }, 500),
     JSON.parse(localStorage.getItem("tamilWordle")).status !== "Win" &&
       JSON.parse(localStorage.getItem("tamilWordle")).status !== "Lose" &&
-      n();
+      s();
 }
 function F(b) {
   var u = document.getElementById("helper-trans-switch"),
@@ -13955,7 +13955,7 @@ function F(b) {
     (d.style.opacity = 0),
     setTimeout(() => {
       u.checked
-        ? ((a.innerHTML = fb),
+        ? ((a.innerHTML = tb),
           (a.style.opacity = 1),
           (d.innerHTML =
             "\u0BB5\u0BBF\u0BA4\u0BBF\u0BAE\u0BC1\u0BB1\u0BC8\u0B95\u0BB3\u0BCD"),
@@ -13967,7 +13967,7 @@ function F(b) {
     }, 500);
 }
 function Y() {
-  y(),
+  m(),
     setTimeout(() => {
       document.querySelector(".statistics").style.opacity = 1;
     }, 10),
@@ -13980,10 +13980,24 @@ function U() {
     }, 500),
     JSON.parse(localStorage.getItem("tamilWordle")).status !== "Win" &&
       JSON.parse(localStorage.getItem("tamilWordle")).status !== "Lose" &&
-      n();
+      s();
+}
+function V() {
+  m(),
+    setTimeout(() => {
+      document.querySelector(".settings").style.opacity = 1;
+    }, 10),
+    (document.querySelector(".settings").style.display = "flex");
+}
+function X() {
+  (document.querySelector(".settings").style.opacity = 0),
+    setTimeout(() => {
+      document.querySelector(".settings").style.display = "none";
+    }, 500),
+    s();
 }
 var r = (b) => ("0" + b).slice(-2);
-function V() {
+function Q() {
   setInterval(() => {
     var b = D(new Date()).getTime(),
       u = new Date().getTime(),
@@ -13994,7 +14008,7 @@ function V() {
     document.querySelector(".clock").innerHTML = r(d) + ":" + r(c) + ":" + r(f);
   }, 1e3);
 }
-async function X() {
+async function Z() {
   var b = JSON.parse(localStorage.getItem("tamilWordle"));
   JSON.parse(localStorage.getItem("tamilWordleStats")).lastWinTimeTaken;
   var u = new Date(),
@@ -14003,16 +14017,16 @@ async function X() {
     c = 1e3 * 60 * 60 * 24,
     f = Math.floor(d / c),
     e = b["data-states"],
-    B = b.gameState;
-  if (b.status === "Win") var S = B.filter((s) => s !== "").length;
+    H = b.gameState;
+  if (b.status === "Win") var S = H.filter((n) => n !== "").length;
   if (b.status === "Lose") var S = "X";
   var i = `\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD Wordle ${f} ${S}/5 
 
 `;
   if (
-    (e.forEach((s) => {
-      s != null &&
-        s.forEach((J) => {
+    (e.forEach((n) => {
+      n != null &&
+        n.forEach((J) => {
           switch (J) {
             case "correct":
               i += "\u{1F7E2}";
@@ -14025,7 +14039,7 @@ async function X() {
               break;
           }
         }),
-        s != null &&
+        n != null &&
           (i += `
 `);
     }),
@@ -14033,12 +14047,12 @@ async function X() {
   )
     try {
       await navigator.share({ text: i });
-    } catch (s) {
-      console.log(s);
+    } catch (n) {
+      console.log(n);
     }
-  else navigator.clipboard.writeText(i), m("Copied to clipboard");
+  else navigator.clipboard.writeText(i), y("Copied to clipboard");
 }
-function Q(b) {
+function _(b) {
   var u = "<div class='overlayloader'><div class='spinner'></div></div>",
     a = JSON.parse(localStorage.getItem("keyboard")).state;
   for (let d in b)
@@ -14060,47 +14074,47 @@ function Q(b) {
 }
 function T(b) {
   if (b.target.matches("[data-key]")) {
-    O(b.target.dataset.key);
+    q(b.target.dataset.key);
     return;
   }
   if (b.target.matches("[data-enter]")) {
-    q();
+    W();
     return;
   }
   if (b.target.matches("[data-delete]")) {
-    W();
+    O();
     return;
   }
 }
 function E(b) {
   if (b.key == "Backspace") {
-    W();
+    O();
     return;
   }
   if (b.key == "Enter") {
-    q();
+    W();
     return;
   }
   if (b.key.match(/^[a-z]$/)) {
-    O(l[db.indexOf(b.key.toLowerCase())]);
+    q(l[eb.indexOf(b.key.toLowerCase())]);
     return;
   }
 }
-function O(b) {
+function q(b) {
   if (v().length > 3) return;
   var u = JSON.parse(localStorage.getItem("timer"));
   u || localStorage.setItem("timer", JSON.stringify(new Date().getTime()));
   const a = g.querySelector(":not([data-letter])");
   (a.dataset.letter = b), (a.textContent = b), (a.dataset.state = "active");
 }
-function W() {
+function O() {
   const b = v()[v().length - 1];
   b != null &&
     ((b.textContent = ""), delete b.dataset.letter, delete b.dataset.state);
 }
-function Z(b, u, a, d) {
+function bb(b, u, a, d) {
   const c = b.dataset.letter,
-    f = H.querySelector(`[data-key="${c}"]`);
+    f = B.querySelector(`[data-key="${c}"]`);
   setTimeout(() => {
     b.classList.add("reveal");
   }, (u * 500) / 2),
@@ -14127,7 +14141,7 @@ function Z(b, u, a, d) {
             b.addEventListener(
               "transitionend",
               () => {
-                n(), _(d, a);
+                s(), ub(d, a);
               },
               { once: !0 }
             );
@@ -14158,12 +14172,12 @@ function h() {
     (document.querySelector(".statsbottombar").style.display = "flex"),
     (document.querySelector(".nostats").style.display = "none");
 }
-function _(b, u) {
+function ub(b, u) {
   var a = JSON.parse(localStorage.getItem("tamilWordle"));
   if (b.join("") === t.join("")) {
-    m("You Win!"),
-      bb(u),
-      y(),
+    y("You Win!"),
+      ab(u),
+      m(),
       (a.status = "Win"),
       localStorage.setItem("tamilWordle", JSON.stringify(a)),
       x("win"),
@@ -14173,16 +14187,16 @@ function _(b, u) {
     return;
   }
   g.querySelectorAll(":not([data-letter])").length == 0 &&
-    (m(t.join("")),
+    (y(t.join("")),
     (a.status = "Lose"),
-    y(),
+    m(),
     x("lose"),
     setTimeout(() => {
       h(), document.getElementById("statistics").click();
     }, 1500)),
     localStorage.setItem("tamilWordle", JSON.stringify(a));
 }
-function bb(b) {
+function ab(b) {
   b.forEach((u, a) => {
     setTimeout(() => {
       u.classList.add("winAnimate"),
@@ -14196,7 +14210,7 @@ function bb(b) {
     }, (a * 500) / 5);
   });
 }
-function ub(b) {
+function cb(b) {
   var u = JSON.parse(localStorage.getItem("tamilWordle")),
     a = u.gameState.indexOf("");
   u.gameState[a] = b;
@@ -14214,12 +14228,12 @@ function ub(b) {
     (u.status = "Progress"),
     localStorage.setItem("tamilWordle", JSON.stringify(u));
 }
-async function q() {
+async function W() {
   var b = document.querySelector(".overlayloader");
-  y();
+  m();
   const u = [...v()];
   if (u.length !== 4) {
-    m("Not enough letters"), w(u), n();
+    y("Not enough letters"), w(u), s();
     return;
   } else {
     var a = u.map((c) => c.dataset.letter);
@@ -14227,21 +14241,21 @@ async function q() {
       b.style.display = "flex";
       var d = await z(a.join(""));
       if (((b.style.display = "none"), !d)) {
-        m("Not in word list"), w(u), n();
+        y("Not in word list"), w(u), s();
         return;
       }
     }
-    ub(a),
+    cb(a),
       v().forEach((...c) => {
-        Z(...c, a);
+        bb(...c, a);
       });
   }
 }
-function n() {
+function s() {
   document.addEventListener("click", T),
     document.addEventListener("keydown", E);
 }
-function y() {
+function m() {
   document.removeEventListener("click", T),
     document.removeEventListener("keydown", E);
 }
@@ -14270,7 +14284,7 @@ function I() {
 async function L(b) {
   return new Promise((u) => setTimeout(u, b));
 }
-function ab() {
+function db() {
   var b = localStorage.getItem("mode");
   b === "light"
     ? (document.body.classList.add("darkmode"),
@@ -14282,7 +14296,7 @@ function ab() {
       document.body.classList.remove("darkmode"),
       localStorage.setItem("mode", "light"));
 }
-function cb(b) {
+function fb(b) {
   b === "dark"
     ? (document.body.classList.add("darkmode"),
       document.querySelector(".modeSwitch").classList.remove("day"),
@@ -14297,7 +14311,7 @@ var M = [],
   t,
   o = {},
   l;
-const db = [
+const eb = [
     "q",
     "w",
     "e",
@@ -14368,7 +14382,7 @@ The letter \u0B9F  is not in the word in any spot.
 A new WORDLE will be available each day!
 </strong>
 </p>`,
-  fb = `
+  tb = `
 <p>
 \u0B90\u0BA8\u0BCD\u0BA4\u0BC1 \u0BAE\u0BC1\u0BAF\u0BB1\u0BCD\u0B9A\u0BBF\u0BAF\u0BBF\u0BB2\u0BCD \u0BB5\u0BBE\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BC8\u0BAF\u0BC8\u0B95\u0BCD \u0B95\u0BA3\u0BCD\u0B9F\u0BC1\u0BAA\u0BBF\u0B9F\u0BBF\u0BAF\u0BC1\u0B99\u0BCD\u0B95\u0BB3\u0BCD. <br />
           <br />
@@ -14412,9 +14426,9 @@ A new WORDLE will be available each day!
         </p>
 `,
   v = () => g.querySelectorAll('[data-state="active"]'),
-  H = document.querySelector(".keyboard"),
+  B = document.querySelector(".keyboard"),
   g = document.querySelector(".gamegrid");
-async function eb() {
+async function ob() {
   if (
     (await $(),
     (t = G()),
@@ -14424,12 +14438,14 @@ async function eb() {
     (document.getElementById("helper-trans-switch").onclick = F),
     (document.getElementById("statistics").onclick = Y),
     (document.getElementById("hideStatistics").onclick = U),
-    (document.querySelector(".share").onclick = X),
-    (document.querySelector(".modeSwitch").onclick = ab),
+    (document.getElementById("settingsButton").onclick = V),
+    (document.getElementById("hideSettings").onclick = X),
+    (document.querySelector(".share").onclick = Z),
+    (document.querySelector(".modeSwitch").onclick = db),
     localStorage.getItem("tamilWordle"))
   ) {
     var b = JSON.parse(localStorage.getItem("tamilWordle"));
-    if (b.expires !== String(new Date()).slice(0, 15)) I(), n();
+    if (b.expires !== String(new Date()).slice(0, 15)) I(), s();
     else {
       var u = JSON.parse(localStorage.getItem("tamilWordleStats"));
       (document.getElementById("played").innerHTML = u.played),
@@ -14450,7 +14466,7 @@ async function eb() {
             });
         }),
         (b.status === "Progress" || b.status === "Initiated") &&
-          (console.log("Game Initiated"), n()),
+          (console.log("Game Initiated"), s()),
         (b.status === "Win" || b.status === "Lose") &&
           setTimeout(() => {
             document.getElementById("statistics").click();
@@ -14458,8 +14474,8 @@ async function eb() {
     }
   } else document.getElementById("helperButton").click(), I();
   (l = K()),
-    (H.innerHTML = Q(l)),
-    V(),
+    (B.innerHTML = _(l)),
+    Q(),
     JSON.parse(localStorage.getItem("tamilWordleStats")).played === 0
       ? ((document.querySelector(".statscontainer").style.display = "none"),
         (document.querySelector(".statsbottombar").style.display = "none"),
@@ -14467,6 +14483,6 @@ async function eb() {
       : h();
 }
 localStorage.getItem("mode")
-  ? cb(localStorage.getItem("mode"))
+  ? fb(localStorage.getItem("mode"))
   : localStorage.setItem("mode", "dark");
-eb();
+ob();

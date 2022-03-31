@@ -45,9 +45,7 @@
   --incorrectLocationKeyFontColor: #b59f3b;
   --hoverKeyColor: #c1c4c9;
 }
-*,
-*:after,
-*:before {
+* {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -90,7 +88,9 @@ svg {
 }
 .navbar > .leftmenu {
   padding-left: 15px;
-  padding-right: 30px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   fill: var(--iconsColor);
 }
 .navbar > .rightmenu {
@@ -148,7 +148,46 @@ svg {
   transition: all 0.5s ease-in-out;
   overflow-y: auto;
 }
-.contentcontainer,
+#hideSettings {
+  right: -20px;
+}
+.contentcontainer {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+.settingsContainer p {
+  margin: 5px;
+}
+.kofi {
+  color: var(--iconsColor);
+  -webkit-tap-highlight-color: transparent;
+}
+.kofi:visited {
+  color: var(--iconsColor);
+}
+.settingsContent {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  background-color: transparent;
+  width: 90%;
+  margin-top: 15px;
+  font-weight: 400;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
 #howtoplay {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -595,7 +634,8 @@ input[type="checkbox"]:focus {
     min-height: 120px;
     margin-right: 10px;
   }
-  .leftSection p {
+  .leftSection p,
+  .kofi {
     font-size: 11px;
   }
 }
