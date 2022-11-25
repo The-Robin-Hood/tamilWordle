@@ -13237,7 +13237,7 @@ async function $() {
 async function z(b) {
   var u;
   try {
-    u = await fetch("https://tamilwordledb.herokuapp.com/search?word=" + b, {
+    u = await fetch("https://tamilwordle-backend.vercel.app/search?word=" + b, {
       method: "GET",
     });
   } catch {
