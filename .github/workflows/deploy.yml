@@ -29,6 +29,7 @@ jobs:
               with:
                 node-version: 18.x
                 cache: pnpm
+                cache-dependency-path: ./frontend/pnpm-lock.yaml
             - name: Install dependencies
               run: pnpm install
             - name: Build
