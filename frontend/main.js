@@ -19,7 +19,7 @@ async function fetchBasics() { // Fetches the entire word list and the main word
 
 async function isItValidTamilWord(string) { // Checks if the word is a valid tamil word from the backend
   try {
-    const data = await fetch("https://tamilwordle-backend.vercel.app/search?word=" + string);
+    const data = await fetch("https://api.tamilwordle.in/valid?word=" + string);
     var json = await data.json();
     if (json.valid === true) {
       return true;
