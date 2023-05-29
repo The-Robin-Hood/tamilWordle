@@ -36,8 +36,8 @@ jobs:
               run: pnpm run build
             - name: Setup pages
               uses: actions/configure-pages@v3
-            - name: Upload pages
-              uses: actions/upload-artifact@v2
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v1
               with:
                 path: ./frontend/build
             - name: Deploy to github pages
