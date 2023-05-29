@@ -39,7 +39,6 @@ jobs:
             - name: Upload pages
               uses: actions/upload-artifact@v2
               with:
-                name: pages
                 path: ./frontend/build
             - name: Deploy to github pages
               id:   deploy-to-github-pages
