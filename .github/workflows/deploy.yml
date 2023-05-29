@@ -16,6 +16,9 @@ jobs:
             name: github-pages
             url: ${{ steps.deploy-to-github-pages.outputs.url }}
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./frontend
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v2
