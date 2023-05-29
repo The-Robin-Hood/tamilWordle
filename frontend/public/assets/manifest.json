@@ -2,6 +2,8 @@
     "name": "தமிழ் Wordle",
     "short_name": "தமிழ் Wordle",
     "description": "Learn தமிழ் words from தமிழ் Wordle",
+    "author": "Ansari",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icons": [
         {

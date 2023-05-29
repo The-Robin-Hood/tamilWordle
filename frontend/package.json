@@ -1,0 +1,24 @@
+{
+  "name": "tamilwordle",
+  "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Ansari",
+    "nickname": "robinhood",
+    "github": "The-Robin-Hood"
+  },
+  "description": "Tamil Word Game",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "toastify-js": "^1.11.2"
+  },
+  "devDependencies": {
+    "vite": "^2.8.0"
+  }
+}

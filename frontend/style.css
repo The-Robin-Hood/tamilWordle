@@ -1,11 +1,13 @@
 @font-face {
-  font-family: Wordle;
-  src: url(./wordleFont.woff2);
+  font-family: "Wordle";
+  src: url("/assets/wordleFont.woff2");
 }
+
 @font-face {
-  font-family: Tamil;
-  src: url(./tamilfont.ttf);
+  font-family: "Tamil";
+  src: url("/assets/tamilfont.ttf");
 }
+
 :root {
   --bgColor: #fff;
   --navbarBottom: #d3d6da;
@@ -17,15 +19,19 @@
   --overlayColor: rgba(0, 0, 0, 0.5);
   --normalKeyFontColor: black;
   --insideKeyFontColor: white;
+
   --loaderColor: #878a8c;
+
   --boxborderColor: #d3d6da;
   --boxactiveColor: #878a8c;
+
   --normalKeyColor: #d3d6da;
   --incorrectKeyFontColor: #787c7e;
   --correctKeyFontColor: #6aaa64;
   --incorrectLocationKeyFontColor: #c9b458;
   --hoverKeyColor: #b8c1ce;
 }
+
 .darkmode {
   --bgColor: black;
   --navbarBottom: #3a3a3c;
@@ -37,22 +43,27 @@
   --normalKeyFontColor: white;
   --insideKeyFontColor: white;
   --loaderColor: whitesmoke;
+
   --boxborderColor: hsl(240, 2%, 23%);
   --boxactiveColor: hsl(0, 0%, 71%);
+
   --normalKeyColor: #818384;
   --incorrectKeyFontColor: #3a3a3c;
   --correctKeyFontColor: #538d4e;
   --incorrectLocationKeyFontColor: #b59f3b;
   --hoverKeyColor: #c1c4c9;
 }
-* {
+
+*{
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 html {
   height: 100%;
   -webkit-text-size-adjust: none;
 }
+
 body {
   background-color: var(--bgColor);
   display: flex;
@@ -63,9 +74,16 @@ body {
   width: 100%;
   transition: background-color 0.5s ease-in-out;
 }
+
 svg {
   pointer-events: none;
 }
+
+.hidden {
+  opacity: 0;
+  display: none;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -76,7 +94,7 @@ svg {
   height: 50px;
 }
 .navbar > .title {
-  font-family: Wordle;
+  font-family: "Wordle";
   font-size: 33px;
   line-height: 100%;
   letter-spacing: 0.01em;
@@ -86,6 +104,7 @@ svg {
   pointer-events: none;
   user-select: none;
 }
+
 .navbar > .leftmenu {
   padding-left: 15px;
   flex-direction: row;
@@ -93,6 +112,7 @@ svg {
   align-items: center;
   fill: var(--iconsColor);
 }
+
 .navbar > .rightmenu {
   fill: var(--iconsColor);
   padding-right: 15px;
@@ -102,6 +122,7 @@ svg {
   align-items: center;
   gap: 10px;
 }
+
 .menubuttons {
   fill: var(--iconsColor);
   color: var(--iconsColor);
@@ -111,6 +132,7 @@ svg {
   outline: none;
   cursor: pointer;
 }
+
 .overlay {
   position: absolute;
   width: 100%;
@@ -130,12 +152,14 @@ svg {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
 .crossX {
   fill: var(--iconsColor);
   -webkit-tap-highlight-color: transparent;
   position: absolute;
   right: 0px;
 }
+
 .content {
   position: relative;
   max-height: 90%;
@@ -148,17 +172,29 @@ svg {
   transition: all 0.5s ease-in-out;
   overflow-y: auto;
 }
-#hideSettings {
-  right: -20px;
+#hideSettings{
+  right:-20px
 }
+
 .contentcontainer {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  transition: all 1s ease-in-out;
+  animation: fadein 1s;
 }
-.settingsContainer {
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.settingsContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -166,28 +202,43 @@ svg {
   background-color: transparent;
   border: none;
 }
-.settingsContainer p {
+
+.settingsContainer p{
   margin: 5px;
 }
+
 .kofi {
   color: var(--iconsColor);
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.5s ease-in-out;
+  padding: 10px;
+  font-size: 20px;
 }
-.kofi:visited {
+
+.kofi:hover{
+  background-color: skyblue;
+  border-radius: 30%;
+  color: white !important;
+}
+
+.kofi:visited{
   color: var(--iconsColor);
 }
-.settingsContent {
-  margin-bottom: 20px;
+
+.settingsContent{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: space-between;
+  align-items: center;
   background-color: transparent;
   width: 90%;
   margin-top: 15px;
   font-weight: 400;
-  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--navbarBottom);
 }
+
 #howtoplay {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -195,6 +246,7 @@ svg {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
 .topbar {
   width: 100%;
   display: flex;
@@ -205,8 +257,9 @@ svg {
   height: 50px;
   user-select: none;
 }
+
 .topbar button {
-  color: #fff;
+  color: white;
   background-color: transparent;
   border: none;
   outline: none;
@@ -216,15 +269,18 @@ svg {
   user-select: none;
   font-size: inherit;
 }
+
 .example {
   display: flex;
   flex-direction: row;
   gap: 0.5em;
-  margin: 10px 0;
+  margin: 10px 0px 10px 0px;
 }
+
 .example > .box {
   padding: 10px;
 }
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -235,9 +291,10 @@ input[type="checkbox"] {
 input[type="checkbox"]:focus {
   outline: 0;
 }
+
 .switchButton {
-  height: 1.3em;
-  width: 3em;
+  height: 1.9em;
+  width: 6em;
   border-radius: 1em;
   display: inline-block;
   position: absolute;
@@ -247,35 +304,40 @@ input[type="checkbox"]:focus {
   background: linear-gradient(180deg, #2d2f39 0%, #1f2027 100%);
   transition: all 0.2s ease;
 }
-.switchButton:before {
+
+.switchButton::before {
   content: "English";
   position: absolute;
-  top: 17px;
-  color: var(--fontColor);
+  left: 25px;
+  top: 3px;
+  color: white;
 }
+
 .switchButton:after {
   content: "";
   position: absolute;
   left: 2px;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 1px 2px #2c2c2c33;
+  box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
   transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
 }
 .switchButton:checked {
   background: var(--correctKeyFontColor);
 }
 .switchButton:checked:before {
-  content: "\ba4\bae\bbf\bb4\bcd";
+  content: "தமிழ்";
   position: absolute;
-  top: 15px;
-  color: var(--fontColor);
+  left: 10px;
+  top: 1px;
+  color: white;
 }
 .switchButton:checked:after {
-  transform: translate(20px);
+  transform: translatex(50px);
 }
+
 .ring {
   display: flex;
   min-height: 200px;
@@ -288,38 +350,46 @@ input[type="checkbox"]:focus {
   border-radius: 50%;
   aspect-ratio: 1/1;
 }
-.ring:after {
+
+.ring::after {
   content: "Time taken";
   font-size: 15px;
   margin-top: 20px;
 }
+
 .timer {
   animation: blinker 1s ease-in-out infinite;
 }
+
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
+
 .nostats {
   display: none;
   align-items: center;
   justify-content: center;
 }
+
 .statscontainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
 .statsTable th {
   text-align: start;
-  padding: 10px;
+  padding: 10px 10px;
 }
+
 .statsTable td {
-  font-weight: 700;
-  font-family: Courier New, Courier, monospace;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
+
 .statsbottombar {
   display: flex;
   flex-direction: row;
@@ -331,7 +401,7 @@ input[type="checkbox"]:focus {
 }
 .leftSection p {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: bold;
 }
 .statsbottombar > .leftSection {
   display: flex;
@@ -340,17 +410,20 @@ input[type="checkbox"]:focus {
   align-items: center;
   padding-right: 10px;
 }
+
 .statsbottombar > .rightSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .clock {
   font-size: 36px;
   font-weight: 400;
   text-align: center;
 }
+
 .share {
   padding: 5px 10px;
   color: var(--buttonColor);
@@ -358,7 +431,7 @@ input[type="checkbox"]:focus {
   border: none;
   outline: none;
   border-radius: 5px;
-  font-weight: 700;
+  font-weight: bold;
   -webkit-tap-highlight-color: transparent;
   background-color: #4caf50;
   cursor: pointer;
@@ -367,6 +440,7 @@ input[type="checkbox"]:focus {
   align-items: center;
   gap: 0.5rem;
 }
+
 .keyboard {
   position: relative;
   display: grid;
@@ -375,8 +449,9 @@ input[type="checkbox"]:focus {
   gap: 0.25em;
   justify-content: center;
   max-width: 100%;
-  padding: 30px 10px;
+  padding: 30px 10px 30px 10px;
 }
+
 .overlayloader {
   position: absolute;
   background-color: var(--overlayColor);
@@ -391,12 +466,13 @@ input[type="checkbox"]:focus {
   justify-content: center;
   border-radius: 10px;
 }
+
 .spinner {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 8px solid;
-  border-color: #add8e6;
+  border-color: lightblue;
   border-right-color: orange;
   animation: s2 1s infinite linear;
 }
@@ -405,9 +481,10 @@ input[type="checkbox"]:focus {
     transform: rotate(1turn);
   }
 }
+
 .key {
-  font-family: Tamil;
-  font-weight: 700;
+  font-family: "Tamil";
+  font-weight: bold;
   grid-column: span 2;
   border: none;
   display: flex;
@@ -423,25 +500,31 @@ input[type="checkbox"]:focus {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+
 .key.special {
   font-family: Arial, Helvetica, sans-serif;
   grid-column: span 3;
 }
+
 .key:hover {
   background-color: var(--hoverKeyColor);
 }
+
 .key.incorrect {
-  color: #fff;
+  color: white;
   background-color: var(--incorrectKeyFontColor);
 }
+
 .key.incorrect-location {
-  color: #fff;
+  color: white;
   background-color: var(--incorrectLocationKeyFontColor);
 }
+
 .key.correct {
-  color: #fff;
+  color: white;
   background-color: var(--correctKeyFontColor);
 }
+
 .loader {
   width: 50%;
   justify-self: center;
@@ -452,7 +535,7 @@ input[type="checkbox"]:focus {
   border: 2px solid;
   position: relative;
 }
-.loader:before {
+.loader::before {
   content: "";
   position: absolute;
   margin: 2px;
@@ -462,7 +545,7 @@ input[type="checkbox"]:focus {
   animation: p6 2s infinite;
 }
 @keyframes p6 {
-  to {
+  100% {
     inset: 0;
   }
 }
@@ -476,97 +559,113 @@ input[type="checkbox"]:focus {
   gap: 0.5em;
   padding: 10px;
 }
+
 .box {
   font-size: 1.7em;
   color: var(--fontColor);
   border: 0.075em solid var(--boxborderColor);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
-  transition: transform 0.25s linear;
+  transition: transform 250ms linear;
 }
+
 .box.helperbox {
   font-size: 1.5rem;
   box-sizing: border-box;
   line-height: 1.7rem;
 }
+
 .box[data-state="active"] {
   border-color: var(--boxactiveColor);
 }
+
 .box[data-state="incorrect"] {
   border: none;
-  color: #fff;
+  color: white;
   background-color: var(--incorrectKeyFontColor);
 }
+
 .box[data-state="incorrect-location"] {
   border: none;
-  color: #fff;
+  color: white;
   background-color: var(--incorrectLocationKeyFontColor);
 }
+
 .box[data-state="correct"] {
   border: none;
-  color: #fff;
+  color: white;
   background-color: var(--correctKeyFontColor);
 }
+
 .box.shake {
-  animation: shake 0.25s ease-in-out;
+  animation: shake 250ms ease-in-out;
 }
+
 .box.reveal {
   transform: rotateX(90deg);
 }
 .box.winAnimate {
-  animation: winAnimate 0.5s ease-in-out;
+  animation: winAnimate 500ms ease-in-out;
 }
+
 @keyframes winAnimate {
   20% {
     transform: translateY(-50%);
   }
+
   40% {
     transform: translateY(5%);
   }
+
   60% {
     transform: translateY(-25%);
   }
+
   80% {
     transform: translateY(2.5%);
   }
+
   90% {
     transform: translateY(-5%);
   }
-  to {
+
+  100% {
     transform: translateY(0);
   }
 }
+
 @keyframes shake {
   10% {
-    transform: translate(-5%);
+    transform: translateX(-5%);
   }
   30% {
-    transform: translate(5%);
+    transform: translateX(5%);
   }
   50% {
-    transform: translate(-7.5%);
+    transform: translateX(-7.5%);
   }
   70% {
-    transform: translate(7.5%);
+    transform: translateX(7.5%);
   }
   90% {
-    transform: translate(-5%);
+    transform: translateX(-5%);
   }
-  to {
-    transform: translate(0);
+  100% {
+    transform: translateX(0%);
   }
 }
+
 .modeSwitch {
   font-size: 10%;
   position: relative;
   height: 16em;
   width: 30em;
   border-radius: 16em;
-  transition: all 0.5s ease-in-out;
+  transition: all 500ms ease-in-out;
   background: #423966;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -578,23 +677,27 @@ input[type="checkbox"]:focus {
   position: absolute;
   display: block;
   border-radius: 50%;
-  transition: all 0.4s ease-in-out;
+  transition: all 400ms ease-in-out;
   top: 3em;
   left: 3em;
   transform: rotate(-75deg);
   width: 10em;
   height: 10em;
   background: #423966;
-  box-shadow: 2em 2.5em #d9fbff inset, #ffffff1a 0 -7em 0 -4.5em,
-    #ffffff1a 3em 7em 0 -4.5em, #ffffff1a 2em 13em 0 -4em,
-    #ffffff1a 6em 2em 0 -4.1em, #ffffff1a 8em 8em 0 -4.5em,
-    #ffffff1a 6em 13em 0 -4.5em, #ffffff1a -4em 7em 0 -4.5em,
-    #ffffff1a -1em 10em 0 -4.5em;
+  box-shadow: 2em 2.5em 0 0em #d9fbff inset,
+    rgba(255, 255, 255, 0.1) 0em -7em 0 -4.5em,
+    rgba(255, 255, 255, 0.1) 3em 7em 0 -4.5em,
+    rgba(255, 255, 255, 0.1) 2em 13em 0 -4em,
+    rgba(255, 255, 255, 0.1) 6em 2em 0 -4.1em,
+    rgba(255, 255, 255, 0.1) 8em 8em 0 -4.5em,
+    rgba(255, 255, 255, 0.1) 6em 13em 0 -4.5em,
+    rgba(255, 255, 255, 0.1) -4em 7em 0 -4.5em,
+    rgba(255, 255, 255, 0.1) -1em 10em 0 -4.5em;
 }
 .sun {
   top: 4.5em;
   left: 18em;
-  transform: rotate(0);
+  transform: rotate(0deg);
   width: 7em;
   height: 7em;
   background: #fff;
@@ -603,6 +706,7 @@ input[type="checkbox"]:focus {
     0 5em 0 -2.7em #fff, -3.5em 3.5em 0 -3em #fff, -5em 0 0 -2.7em #fff,
     -3.5em -3.5em 0 -3em #fff;
 }
+
 @media (max-width: 600px) {
   .gamegrid {
     grid-template-columns: repeat(4, 4.7em);
@@ -612,13 +716,16 @@ input[type="checkbox"]:focus {
     grid-template-columns: repeat(20, minmax(auto, 1em));
     grid-auto-rows: 3em;
   }
+
   .key {
     font-size: 12px;
     overflow: hidden;
   }
+
   .key.special {
     font-size: 0.7em;
   }
+
   .navbar > .title {
     font-size: 25px;
   }
@@ -630,15 +737,19 @@ input[type="checkbox"]:focus {
   .statscontainer {
     justify-content: space-around;
   }
+
   .ring {
     min-height: 120px;
     margin-right: 10px;
   }
-  .leftSection p,
+  .leftSection p {
+    font-size: 11px;
+  }
   .kofi {
     font-size: 11px;
   }
 }
+
 @media (max-height: 600px) {
   .gamegrid {
     font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
