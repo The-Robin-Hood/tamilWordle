@@ -489,7 +489,7 @@ input[type="checkbox"]:focus {
 }
 
 .share {
-	padding: 5px 10px;
+	padding: 7px 37px;
 	color: var(--buttonColor);
 	fill: var(--buttonColor);
 	border: none;
@@ -503,6 +503,12 @@ input[type="checkbox"]:focus {
 	flex-direction: row;
 	align-items: center;
 	gap: 0.5rem;
+  margin-right: 10px;
+  margin-top:10px;
+}
+.share > h3{
+  padding:0px;
+  margin:0px;
 }
 
 .keyboard {
