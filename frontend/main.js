@@ -693,6 +693,7 @@ async function main() {
 	document.getElementById("hideHelper").onclick = hideHelper
 	document.getElementById("statistics").onclick = showStatistics
 	document.getElementById("hideStatistics").onclick = hideStatistics
+	document.getElementById("hideFeedBack").onclick = hideFeedback
 	document.getElementById("settingsButton").onclick = showSettings
 	document.getElementById("hideSettings").onclick = hideSettings
 	document.getElementById("translateSwitch").onclick = translateInstruction
