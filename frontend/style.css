@@ -107,11 +107,25 @@ svg {
 
 .navbar > .leftmenu {
 	padding-left: 15px;
+	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	gap: 3px;
 	fill: var(--iconsColor);
 }
+
+.btn-container{
+	min-width: 10px !important;
+}
+
+.kofi-button {
+	min-width: 10px !important;
+}
+
+.kofiimg{
+	height: 100px !important;
+} 
 
 .navbar > .rightmenu {
 	fill: var(--iconsColor);
@@ -268,6 +282,19 @@ svg {
 	cursor: pointer;
 	user-select: none;
 	font-size: inherit;
+}
+
+.sponsor-custom-topbar {
+	width: 100%;
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	justify-content: end;
+	align-items: start;
+	color: var(--fontColor);
+	height: 50px;
+	user-select: none;
 }
 
 .example {

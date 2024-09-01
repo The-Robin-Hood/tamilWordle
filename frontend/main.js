@@ -464,6 +464,23 @@ function hideHelper() {
 	startGame()
 }
 
+function showSponsor() {
+	stopGame()
+	setTimeout(() => {
+		document.querySelector(".sponsor").style.opacity = 1
+	}, 10)
+	document.querySelector(".sponsor").style.display = "flex"
+}
+
+function hideSponsor() {
+	document.querySelector(".sponsor").style.opacity = 0
+	setTimeout(() => {
+		document.querySelector(".sponsor").style.display = "none"
+	}, 500)
+	startGame()
+}
+
+
 function showStatistics() {
 	stopGame()
 	if (!localStorage.getItem("tamilWordleFeedback")) {
@@ -692,6 +709,10 @@ async function main() {
 
 	document.getElementById("helperButton").onclick = showHelper
 	document.getElementById("hideHelper").onclick = hideHelper
+	document.getElementById("sponsorButton").onclick = showSponsor
+	document.getElementById("hideSponsor").onclick = hideSponsor
+	document.getElementById("buyingMeCoffee").onclick = ()=>{hideFeedback();showSponsor()}
+	document.getElementById("buyMeCoffee").onclick = ()=>{hideSettings();showSponsor()}
 	document.getElementById("statistics").onclick = showStatistics
 	document.getElementById("hideStatistics").onclick = hideStatistics
 	document.getElementById("hideFeedBack").onclick = hideFeedback
