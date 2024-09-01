@@ -612,7 +612,8 @@ function onFeedbackSubmit(e) {
 	e.preventDefault()
 	let feedbackForm = document.getElementById("feedbackForm")
 	let rating = feedbackForm.querySelector('input[name="rating"]:checked')
-	let feedback = feedbackForm.querySelector('textarea[name="feedback"]').value
+	// let feedback = feedbackForm.querySelector('textarea[name="feedback"]').value
+	let feedback = "REMOVED FEEDBACK 🤐"
 	console.log(rating, feedback)
 	if (!rating) {
 		toast("Please select a rating")
